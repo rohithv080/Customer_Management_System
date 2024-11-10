@@ -1,0 +1,125 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEC: Login</title>
+    <style>
+    nav {
+        background-color: black;
+        color: white;
+        padding: 1em;
+        text-align: center;
+        width: 96%;
+        z-index: 1000;
+        position: fixed;
+    }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    nav li {
+        margin-right: 15px;
+        display: inline;
+    }
+    nav a {
+        color: #fbf9f9;
+        text-decoration: none;
+    }
+    nav a:hover {
+        color: #54c9de;
+    }
+    .active {
+        background-color: yellowgreen;
+    }
+    td {
+        height: 40px;
+    }
+    input {
+        border-radius: 10px;
+        height: 25px;
+    }
+    select {
+        border-radius: 10px;
+        height: 25px;
+        width: 170px;
+    }
+    .popup {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+    .popup.show {
+        display: block;
+    }
+    </style>
+</head>
+<body style="background-color: lightsteelblue">
+    <div>
+        <nav class="navigate">
+            <div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="Register.jsp">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+        <center>
+            <div style="display: block; height: 100px;"></div>
+            <div>
+                <h3 style="color: rgb(22, 3, 89);">If you are a new user of our site, you can Register yourself</h3>
+            </div>
+            <div style="display: block; width: 400px; background-color: #fbf9f9; padding: 10px; border-radius: 10px; box-shadow: solid grey;">
+                <div>
+                    <h4>User Login</h4>
+                </div>
+                <form action="ValidateLogin" method="post">
+                    <table>
+                        <tr>
+                            <td><label for="customerid">Username:</label></td>
+                            <td><input type="number" id="customerid" name="customerid" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">Password:</label></td>
+                            <td><input type="password" id="password" name="password" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="userType">User type:</label></td>
+                            <td>
+                                <select id="userType" name="userType">
+                                    <option value="admin">Admin</option>
+                                    <option value="customer">Student</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table><br>
+                    <input type="submit" value="Login" name="login">
+                    <input type="reset" value="Reset" name="reset" class="reset">
+                </form>
+                <div>
+                    <a href="#" onclick="forgot()">Forgot Password</a>
+                    <div id="popup" class="popup"></div>
+                </div>
+            </div>
+        </center>
+    </div>
+
+    <script>
+       
+        function forgot() {
+            alert('Your request has been denied. \n Contact your Administrator to revoke your account.');
+            window.location.href = '#';
+        }
+    </script>
+</body>
+</html>
